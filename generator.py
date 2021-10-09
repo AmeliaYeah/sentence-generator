@@ -124,7 +124,7 @@ def generate(startsWithING = False, nounCount = None):
         sentence += " " + genRandom(transitions) + " " + getNoun() + verbSeperator + genVerbString(isING) + nounAfter
 
     
-    return sentence
+    return sentence.lower()
 
 if __name__ == "__main__":
     while True:
