@@ -86,7 +86,7 @@ def getNoun(all_nouns=True):
         return "a " + noun
     
 
-def generate_sentence(startsWithING = False, nounCount = None):
+def generate(startsWithING = False, nounCount = None):
     if nounCount == None:
         nounCount = random.randint(0, 5)
 
@@ -121,3 +121,14 @@ def generate_sentence(startsWithING = False, nounCount = None):
 
     
     return sentence
+
+if __name__ == "__main__":
+    while True:
+        try:
+            startING = False
+            if input("Start with ING? (Press Y): ").strip().lower() == "y":
+                startING = True
+                
+            print(generate(startING, int(input("How much nouns? "))))
+        except Exception as e:
+            print(f"Error: {e}")
