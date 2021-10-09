@@ -1,9 +1,13 @@
 import random, string, json
 
-verbs = open("verbs", "r").readlines()
-nounsRaw = open("nouns", "r").readlines()
-transitions = open("sentence-transitions", "r").readlines()
-adjectives = open("adjectives", "r").readlines()
+def read_file(name):
+    with open(name, "r") as f:
+        return f.readlines()
+
+verbs = read_file("verbs")
+nounsRaw = read_file("nouns")
+transitions = read_file("sentence-transitions")
+adjectives = read_file("adjectives")
 
 bonusNouns = ["they", "you", "I"]
 bonusNounsPosessive = ["their", "your", "my"]
