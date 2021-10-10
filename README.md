@@ -7,11 +7,9 @@ Originally used for my [random meme generator](https://www.youtube.com/channel/U
 Pretty much all the functions are free to be used by you. And if you execute the python script through python, you'll be greeted with a neat interface to dynamically generate sentences. Thought it might be useful rather than having it close on you.
 
 There might be a library that already does this, but if not, then here ya go. :)
-
-
-
-
-
+\
+\
+\
 
 ## Noun starting word rules
 
