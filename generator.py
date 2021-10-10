@@ -39,10 +39,10 @@ def verb_to_ing(verb):
     
     return verb + "ing"
 
-def genRandom(arr):
+def gen_random(arr):
     return arr[random.randint(0, len(arr) - 1)].strip()
 
-def nounToPosessive(noun):
+def noun_to_posessive(noun):
     try:
         return bonusNounsPosessive[bonusNouns.index(noun)]
     except:
@@ -53,8 +53,8 @@ def nounToPosessive(noun):
     else:
         return noun + "'s"
 
-def genVerbString(isING):
-    verb = genRandom(verbs)
+def gen_verb(isING):
+    verb = gen_random(verbs)
     if isING:
         verb = verb_to_ing(verb)
     else:
@@ -65,20 +65,20 @@ def genVerbString(isING):
     verbPreps = ["on", "to", "with"]
     return verb + " " + verbPreps[random.randint(0, len(verbPreps) - 1)] + " "
 
-def generateBeginningFormatRandom():
+def _generate_beginning_format_random():
     if random.randint(0, 100) > 50:
         return "the "
     else:
         return ""
 
-def getNoun(all_nouns=True):
+def gen_noun(all_nouns=True):
     if all_nouns == True:
         noun_arr = nouns
     else:
         noun_arr = nounsRaw
 
-    noun = genRandom(noun_arr)
-    formatting_rules = [("(T)", lambda: "the "), ("(P)", lambda: ""),("(R)", generateBeginningFormatRandom)]
+    noun = gen_random(noun_arr)
+    formatting_rules = [("(T)", lambda: "the "), ("(P)", lambda: ""),("(R)", _generate_beginning_format_random)]
     for rule in formatting_rules:
         if noun.endswith(rule[0]):
             return rule[1]() + noun[:len(rule[0])]
@@ -97,11 +97,11 @@ def generate(startsWithING = False, nounCount = None):
     sentence = ""
     if startsWithING:
         if nounCount == 0:
-            return verb_to_ing(genRandom(verbs))
+            return verb_to_ing(gen_random(verbs))
 
-        sentence += genVerbString(True)
+        sentence += gen_verb(True)
     
-    sentence += getNoun(False)
+    sentence += gen_noun(False)
     for nounNum in range(nounCount):
         isING = random.randint(0, 100) > 50
         verbSeperator = " "
@@ -110,18 +110,18 @@ def generate(startsWithING = False, nounCount = None):
             verbSeperator = " " + possibleSeperators[random.randint(0, len(possibleSeperators) - 1)] + " "
 
         is_possessed_noun = (random.randint(0, 100) > 60)
-        nounAfter = getNoun(False)
+        nounAfter = gen_noun(False)
         if(is_possessed_noun):
             adjectivesArr = []
             adjecStr = " "
             if random.randint(0, 100) > 40: #make it so adjectives have a chance of not spawning
                 for i in range(random.randint(1, 4)):
-                    adjectivesArr.append(genRandom(adjectives))
+                    adjectivesArr.append(gen_random(adjectives))
                 adjecStr = " " + ", ".join(adjectivesArr) + " "
 
-            nounAfter = nounToPosessive(nounAfter) + adjecStr + genRandom(nounsRaw) #very important that genRandom is used instead of getNoun
+            nounAfter = noun_to_posessive(nounAfter) + adjecStr + gen_random(nounsRaw) #very important that gen_random is used instead of gen_noun
 
-        sentence += " " + genRandom(transitions) + " " + getNoun() + verbSeperator + genVerbString(isING) + nounAfter
+        sentence += " " + gen_random(transitions) + " " + gen_noun() + verbSeperator + gen_verb(isING) + nounAfter
 
     
     return sentence.lower()
