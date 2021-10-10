@@ -9,7 +9,7 @@ Pretty much all the functions are free to be used by you. And if you execute the
 There might be a library that already does this, but if not, then here ya go. :)
 \
 \
-
+\
 ## Noun starting word rules
 
 So incase you would like to add your *own* nouns to the mix (you shouldn't have to given the vast abundance of them, but if you would like to then it's fine by me), there are special formatting rules you can ask the program to follow by simply appending a letter in parantheses after the noun (**WITH NO SPACES BETWEEN THE MARKER AND THE NOUN ITSELF**)
