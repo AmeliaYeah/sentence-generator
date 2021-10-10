@@ -8,6 +8,7 @@ Pretty much all the functions are free to be used by you. And if you execute the
 
 There might be a library that already does this, but if not, then here ya go. :)
 
+
 ## Noun starting word rules
 
 So incase you would like to add your *own* nouns to the mix (you shouldn't have to given the vast abundance of them, but if you would like to then it's fine by me), there are special formatting rules you can ask the program to follow by simply appending a letter in parantheses after the noun (**WITH NO SPACES BETWEEN THE MARKER AND THE NOUN ITSELF**)
@@ -20,3 +21,5 @@ The formatting rules are as follows:
 * **(P)** -> Adds *nothing* infront of the noun, which is mainly useful for proper nouns, hence why "P" is the letter. (Ex: George(P) turns to "George")
 * **(R)** -> Replaces itself with (T) or (P) each time the noun is run in the script, with a random chance of each occuring.
 * **default** -> Adds "a" or "an" infront of the noun, depending on if it starts with a vowel or a consonant (Ex: "apple" turns to "an apple")
+
+Feel free to add your own custom formats if you'd like (it's in the `formatting_rules` array on line 81). Though I think these formats might be enough for most people.
