@@ -9,7 +9,6 @@ Pretty much all the functions are free to be used by you. And if you execute the
 There might be a library that already does this, but if not, then here ya go. :)
 \
 \
-\
 
 ## Noun starting word rules
 
