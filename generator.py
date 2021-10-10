@@ -2,7 +2,7 @@ import random, string, json
 
 def read_file(name):
     with open(name, "r") as f:
-        return f.readlines()
+        return [word.lower().strip() for word in f.readlines()]
 
 verbs = read_file("verbs")
 nounsRaw = read_file("nouns")
@@ -124,7 +124,7 @@ def generate(startsWithING = False, nounCount = None):
         sentence += " " + gen_random(transitions) + " " + gen_noun() + verbSeperator + gen_verb(isING) + nounAfter
 
     
-    return sentence.lower()
+    return sentence
 
 if __name__ == "__main__":
     while True:
